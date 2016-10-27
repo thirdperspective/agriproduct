@@ -20,7 +20,7 @@ var rowN = ["Agricultural Production Oilseeds",
 "Agricultural Production Oilseeds Soyabean Kharif"
 ];
 
-var obj1 = {colIndex:[0,23],rowName: rowN,aggrigate:false};
+var obj1 = {colIndex:[0,23,24],rowName: rowN,aggrigate:false};
 var inputFile = '../data/Production-Department_of_Agriculture_and_Cooperation_1.csv'; 
 var outputFile1 = "../data/oilseeds.json";
 
@@ -79,6 +79,25 @@ var rowNArea =[
 
 var obj4 = {colIndex:["all"],rowName: rowNArea,aggrigate:false};
 var outputFile4 = "../data/riseproductionsouthstates.json";
+
+
+var funBind1 = convert.bind(obj1,inputFile,outputFile1);
+funBind1();
+//foodgrains
+var funBind2 = convert.bind(obj2,inputFile,outputFile2);
+setTimeout(funBind2, 4000);
+//aggricated of commercial corps
+var funBind3 = convert.bind(obj3,inputFile,outputFile3);
+setTimeout(funBind3, 4000);
+//southern states rice production
+var funBind4 = convert.bind(obj4,inputFile,outputFile4);
+setTimeout(funBind4, 4000);
+
+//sampleobj1={colIndex:["all"],rowName: [null],aggrigate:false}
+//sampleobj2={colIndex:[0,26],rowName: [null],aggrigate:false}
+//sampleobj3={colIndex:["all"],rowName: ["oildseeds","foodgrains"],aggrigate:false}
+//sampleobj4={colIndex:[0,26],rowName: ["oildseeds","foodgrains"],aggrigate:false}
+//sampleobj5={colIndex:[0,26],rowName: [null],aggrigate:true}
 
 function convert(inputFileLocal,outputFileLocal)
 {
@@ -176,14 +195,3 @@ function convert(inputFileLocal,outputFileLocal)
 
 }//end of the convertion function
 //oilseeds 
-var funBind1 = convert.bind(obj1,inputFile,outputFile1);
-funBind1();
-//foodgrains
-var funBind2 = convert.bind(obj2,inputFile,outputFile2);
-setTimeout(funBind2, 4000);
-//aggricated of commercial corps
-var funBind3 = convert.bind(obj3,inputFile,outputFile3);
-setTimeout(funBind3, 4000);
-//southern states rice production
-var funBind4 = convert.bind(obj4,inputFile,outputFile4);
-setTimeout(funBind4, 4000);
